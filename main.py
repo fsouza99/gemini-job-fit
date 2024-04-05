@@ -8,7 +8,7 @@ Avisos
 5. Verifique o arquivo settings.py antes de executar.
 """
 
-from scrapper import *
+from scraper import *
 from bot import Bot
 from myio import *
 from settings import CVFILE, HELP_MSG
