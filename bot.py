@@ -7,8 +7,7 @@ class Bot():
 
 	def __init__(self):
 		self._model = genai.GenerativeModel('gemini-pro')
-		self.last_prompt = None
-		self.last_response = None
+		self.last_prompt = self.last_response = None
 		self.set_auto_apikey()
 
 	def set_auto_apikey(self):
@@ -20,11 +19,10 @@ class Bot():
 		try:
 			response = self._model.generate_content(prompt).text
 		except Exception as exc:
-			print(exc)
 			response = None
-		else:
-			self.last_prompt = prompt
-			self.last_response = response
+			print(exc)
+		self.last_prompt = prompt
+		self.last_response = response
 		return response
 
 

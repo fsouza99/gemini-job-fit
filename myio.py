@@ -1,25 +1,28 @@
-from settings import PROMPT_PATH
+from datetime import datetime
 from string import Template
 
-def write_file(path, text) -> None:
-	"""
-	Salva texto em arquivo.
-	"""
+from settings import PROMPTFILE
+
+def curr_date() -> str:
+	return str(datetime.today().date())
+
+def write_file(path, text, footnote=None) -> None:
 	with open(path, 'w', encoding='utf8') as file:
 		file.write(text)
+		if footnote is not None:
+			file.write(f'\n\n---\n{footnote}')
 	return
 
 def read_file(path) -> str:
-	"""
-	Extrai o texto de um arquivo.
-	"""
 	with open(path, encoding='utf8') as file:
 		text = file.read()
 	return text
 
-def set_prompt(job_pos, job_desc, candidate_cv) -> str:
+def set_prompt(job_position, job_description, curriculum) -> str:
 	"""
 	Constrói prompt a partir de modelo em arquivo.
 	"""
-	return Template(read_file(PROMPT_PATH)).substitute(
-		position=job_pos, job_description=job_desc, curriculum=candidate_cv)
+	return Template(read_file(PROMPTFILE)).substitute(
+			job_position=job_position.lower(),
+			job_description=job_description,
+			curriculum=curriculum)

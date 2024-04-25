@@ -1,9 +1,0 @@
-Considere o seguinte anúncio de uma vaga de emprego para o cargo de $position:
-
-"$job_description".
-
-Veja agora o currículo de um candidato à vaga apresentada:
-
-"$curriculum".
-
-Avalie a compatibilidade do candidato com a vaga, apresentando um percentual como resumo, e conclua se a convocação do candidato é recomendável ou não.

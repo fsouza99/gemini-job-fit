@@ -5,13 +5,13 @@ Avisos
 2. Registre uma chave de acesso ao Gemini em files/apikey.
 3. Salve o currículo a ser avaliado em files/curriculum.txt.
 4. O prompt a ser enviado será construído conforme template em files/prompt_model.
-5. Verifique o arquivo settings.py antes de executar.
 """
 
-from scraper import *
 from bot import Bot
 from myio import *
-from settings import CVFILE, HELP_MSG
+from scraper import *
+from settings import *
+
 from sys import argv
 
 if len(argv) < 2:
@@ -19,17 +19,15 @@ if len(argv) < 2:
 	exit(1)
 
 print('Realizando download da página.')
-job_url = argv[1]
-job_page = get_page(job_url)
+company_name = company_name(argv[1])
+job_page = get_page(argv[1])
 
 print('Extraindo informações da vaga de emprego.')
-job_title, job_desc = parse(job_page)
-
-print('Obtendo currículo.')
-curriculum = read_file(CVFILE)
+job_position, job_desc = parse(job_page)
 
 print('Construindo prompt.')
-prompt = set_prompt(job_title, job_desc, curriculum)
+curriculum = read_file(CVFILE)
+prompt = set_prompt(job_position, job_desc, curriculum)
 
 print('Comunicando o Gemini.')
 gproxy = Bot()
@@ -40,9 +38,15 @@ if response is None:
 	print('Falha na comunicação.')
 else:
 	print('Salvando informações.')
-	write_file(path=f'{job_title} (description).txt', text=job_desc)
-	write_file(path=f'{job_title} (prompt).txt', text=prompt)
-	write_file(path=f'{job_title} (response).md', text=response)
+	prefix = f'{OUTPUTDIR}\\{company_name} - {job_position}'
+	curr_date = curr_date()
+	write_file(f'{prefix} (prompt).md', prompt, curr_date)
+	write_file(f'{prefix} (response).md', response, curr_date)
+
+
+
+
+
 
 
 

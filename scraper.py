@@ -1,33 +1,30 @@
+import re
 import requests
 
 from bs4 import BeautifulSoup
-from string import Template
+
+def company_name(job_url):
+	"""
+	Extrai nome de empresa em URL de vaga na Gupy sob o formato:
+		https://<empresa>.gupy.io/jobs/<id>?jobBoardSource=share_link
+	"""
+	return job_url[8:job_url.index('.gupy.')].capitalize()
 
 def parse(html) -> tuple:
 	"""
-	Retorna o título e a descrição formatada da oferta de emprego de uma página Gupy.
+	Retorna empresa, título e descrição formatada da oferta de emprego de uma página Gupy.
+	A função interna é útil para obter texto de bloco HTML respeitando novos parágrafos e itens de lista.
 	"""
 	def refine(piece):
-		"""
-		Útil para obter texto de bloco HTML respeitando novos parágrafos e itens de lista.
-		"""
-		piece = piece.replace('<p><ul><li>', '\n- ').replace('<p>', '\n').replace('<li>', '\n- ')
-		out = []
-		for c in piece:
-			if c == '<':
-				to_write = False
-			elif c == '>':
-				to_write = True
-			elif to_write:
-				out.append(c)
-		return ''.join(out)
+		piece = piece.replace('<p', '\n<p').replace('<li', '\n- <li')
+		return re.sub(r"<(.*?)>", '', piece)
 
 	soup = BeautifulSoup(html, "html.parser")
 	title = soup.find(id='h1').text
-	out = [
-		f"{outter_div.h2.text}\n{refine(str(outter_div.div))}\n"
-		for outter_div in soup.section.children
-		]
+	out = []
+	for outter_div in soup.section.contents:
+		if outter_div.h2.text != 'INFORMAÇÕES ADICIONAIS':
+			out.append(f"""#### {outter_div.h2.text}\n{refine(str(outter_div.div))}\n""")
 	return title, '\n'.join(out)
 
 def get_page(url: str) -> str:
@@ -40,3 +37,8 @@ def get_page(url: str) -> str:
 	else:
 		raise RuntimeError(f"Error downloading webpage: {response.status_code}")
 	return html_content
+
+
+
+
+
