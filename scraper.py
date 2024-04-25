@@ -23,7 +23,7 @@ def parse(html) -> tuple:
 	title = soup.find(id='h1').text
 	out = []
 	for outter_div in soup.section.contents:
-		if outter_div.h2.text != 'INFORMAÇÕES ADICIONAIS':
+		if outter_div.h2.text != 'Informações adicionais':
 			out.append(f"""#### {outter_div.h2.text}\n{refine(str(outter_div.div))}\n""")
 	return title, '\n'.join(out)
 
