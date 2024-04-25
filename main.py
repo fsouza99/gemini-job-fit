@@ -3,7 +3,7 @@ Avisos
 
 1. Passe a URL da página de uma vaga no portal Gupy como argumento a este programa.
 2. Registre uma chave de acesso ao Gemini em files/apikey.
-3. Salve o currículo a ser avaliado em files/curriculum.txt.
+3. Salve o currículo a ser avaliado em files/curriculum.md.
 4. O prompt a ser enviado será construído conforme template em files/prompt_model.
 """
 
