@@ -1,10 +1,11 @@
 """
 Avisos
 
-1. Passe a URL da página de uma vaga no portal Gupy como argumento a este programa.
-2. Registre uma chave de acesso ao Gemini em files/apikey.
-3. Salve o currículo a ser avaliado em files/curriculum.md.
-4. O prompt a ser enviado será construído conforme template em files/prompt_model.
+1. Execute set_env.py para criação de dependências.
+2. Passe a URL da página de uma vaga no portal Gupy como argumento a este programa.
+3. Registre uma chave de acesso ao Gemini em files/apikey.
+4. Salve o currículo a ser avaliado em files/curriculum.md.
+5. O prompt a ser enviado será construído conforme template em files/prompt_model.
 """
 
 from bot import Bot

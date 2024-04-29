@@ -1,5 +1,5 @@
 __pycache__
 *_ignore*
 *tests*
-files/output/*
-!.gitkeep
+files/*
+!prompt_model.md
