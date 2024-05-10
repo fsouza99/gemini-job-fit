@@ -1,5 +1,5 @@
 # Caminho para arquivo com chave de acesso à Gemini API.
-# Se editar o arquivo, mantenha o formato GEMINI_API_KEY=<chave>.
+# Ao editar o arquivo, mantenha o formato GEMINI_API_KEY=Chave.
 API_KEY_PATH = "files\\apikey"
 
 # Caminho para arquivo com descrição do currículo.
@@ -9,8 +9,12 @@ CVFILE = "files\\curriculum.md"
 # Caminho para arquivo com modelo de prompt.
 PROMPTFILE = "files\\prompt_model.md"
 
-# Caminho para prompts enviados e respostas do Gemini.
+# Caminho para diretório de prompts enviados e respostas do Gemini.
 OUTPUTDIR = 'files\\output'
 
-# Mensagem de ajuda.
-HELP_MSG = "Comando: py main.py <gupy_url>"
+# Mensagens de ajuda.
+HELP_MSG1 = \
+f"""
+Dependências geradas no diretório "files".
+Antes de executar novamente, informe as entradas nos arquivos criados."""
+HELP_MSG2 = "Comando: py main.py <gupy_url>"

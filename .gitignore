@@ -1,5 +1,6 @@
-__pycache__
 *_ignore*
 *tests*
-files/*
-!prompt_model.md
+__pycache__
+files/apikey
+files/curriculum.md
+files/output

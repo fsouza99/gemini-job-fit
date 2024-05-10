@@ -3,16 +3,9 @@ import requests
 
 from bs4 import BeautifulSoup
 
-def company_name(job_url):
-	"""
-	Extrai nome de empresa em URL de vaga na Gupy sob o formato:
-		https://<empresa>.gupy.io/jobs/<id>?jobBoardSource=share_link
-	"""
-	return job_url[8:job_url.index('.gupy.')].capitalize()
-
 def parse(html) -> tuple:
 	"""
-	Retorna empresa, título e descrição formatada da oferta de emprego de uma página Gupy.
+	Retorna título e descrição formatada da oferta de emprego de uma página Gupy.
 	A função interna é útil para obter texto de bloco HTML respeitando novos parágrafos e itens de lista.
 	"""
 	def refine(piece):
@@ -21,11 +14,12 @@ def parse(html) -> tuple:
 
 	soup = BeautifulSoup(html, "html.parser")
 	title = soup.find(id='h1').text
+	forbidden = ('Informações adicionais', 'Etapas do processo')
 	out = []
 	for outter_div in soup.section.contents:
-		if outter_div.h2.text != 'Informações adicionais':
+		if not outter_div.h2.text in forbidden:
 			out.append(f"""#### {outter_div.h2.text}\n{refine(str(outter_div.div))}\n""")
-	return title, '\n'.join(out)
+	return title.strip(), '\n'.join(out)
 
 def get_page(url: str) -> str:
 	"""

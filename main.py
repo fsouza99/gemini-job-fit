@@ -1,22 +1,17 @@
-"""
-Avisos
-
-1. Execute set_env.py para criação de dependências.
-2. Passe a URL da página de uma vaga no portal Gupy como argumento a este programa.
-3. Registre uma chave de acesso ao Gemini em files/apikey.
-4. Salve o currículo a ser avaliado em files/curriculum.md.
-5. O prompt a ser enviado será construído conforme template em files/prompt_model.
-"""
+from sys import argv
 
 from bot import Bot
+from miscellaneous import *
 from myio import *
 from scraper import *
 from settings import *
 
-from sys import argv
+if set_environment():
+	print(HELP_MSG1)
+	exit(0)
 
 if len(argv) < 2:
-	print(HELP_MSG)
+	print(HELP_MSG2)
 	exit(1)
 
 print('Realizando download da página.')
@@ -39,16 +34,7 @@ if response is None:
 	print('Falha na comunicação.')
 else:
 	print('Salvando informações.')
-	prefix = f'{OUTPUTDIR}\\{company_name} - {job_position}'
+	prefix = f'{OUTPUTDIR}\\{fix_title(company_name)} - {fix_title(job_position)}'
 	curr_date = curr_date()
 	write_file(f'{prefix} (prompt).md', prompt, curr_date)
 	write_file(f'{prefix} (response).md', response, curr_date)
-
-
-
-
-
-
-
-
-

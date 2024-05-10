@@ -1,16 +1,10 @@
-from datetime import datetime
-from string import Template
-
-from settings import PROMPTFILE
-
-def curr_date() -> str:
-	return str(datetime.today().date())
+import os
 
 def write_file(path, text, footnote=None) -> None:
 	with open(path, 'w', encoding='utf8') as file:
 		file.write(text)
 		if footnote is not None:
-			file.write(f'\n\n---\n{footnote}')
+			file.write(f'\n\n---\n\n{footnote}')
 	return
 
 def read_file(path) -> str:
@@ -18,11 +12,29 @@ def read_file(path) -> str:
 		text = file.read()
 	return text
 
-def set_prompt(job_position, job_description, curriculum) -> str:
+def set_environment() -> bool:
 	"""
-	Constrói prompt a partir de modelo em arquivo.
+	Se necessário, cria as dependências da execução principal.
+	Retorna booleano que informa se algum elemento foi criado, isto é,
+	se a working tree foi alterada.
 	"""
-	return Template(read_file(PROMPTFILE)).substitute(
-			job_position=job_position.lower(),
-			job_description=job_description,
-			curriculum=curriculum)
+	target_dir = os.listdir("files")
+	altered_wt = False
+
+	if not "output" in target_dir:
+		os.mkdir("files\\output")
+		print("Diretório criado: files\\output")
+		altered_wt = True
+
+	if not "apikey" in target_dir:
+		with open("files\\apikey", 'w') as file:
+			file.write("GEMINI_API_KEY=Chave")
+		print("Arquivo criado: files\\apikey")
+		altered_wt = True
+
+	if not "curriculum.md" in target_dir:
+		open("files\\curriculum.md", 'w').close()
+		print("Arquivo criado: files\\curriculum.md")
+		altered_wt = True
+
+	return altered_wt
