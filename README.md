@@ -26,6 +26,6 @@ Como resultado, o programa registra em arquivos o *prompt* enviado e a resposta 
 
 ### Créditos
 
-* [Portal Gupy](https://www.gupy.io)
+* [Portal Gupy](https://portal.gupy.io/?int_ref=navbar-candidatos)
 * [Gemini](https://deepmind.google/technologies/gemini/#introduction)
 * [Beautiful Soup](https://pypi.org/project/beautifulsoup4/)
