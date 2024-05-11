@@ -1,8 +1,12 @@
 ## Tarefa
 
-Avalie a compatibilidade entre dois textos: Um currículo vitae (CV) e a descrição de uma vaga de emprego para o cargo de **$job_position**. Identifique as habilidades, experiências e qualificações mencionadas na descrição da vaga e compare-as às informações apresentadas no CV.
+Avalie a compatibilidade entre dois textos: Um currículo vitae (CV) e a descrição de uma vaga de emprego para o cargo de **$job_position**. A saída deve exprimir os seguintes itens em no máximo 300 palavras:
 
-A saída deve conter uma porcentagem indicando o nível de compatibilidade entre o candidato e a vaga, e uma análise detalhada destacando habilidades e experiências relevantes do CV que correspondem à descrição da vaga. Determine se a convocação do candidato é recomendável ou não. Apresente o que o candidato pode fazer para aumentar suas chances de admissão.
+- Indicação do nível de compatibilidade geral entre o candidato e a vaga numa escala de 1 a 5.
+- Identificação de elementos (experiências profissionais e acadêmicas, habilidades, conquistas e resultados) mencionados no CV que sejam relevantes para a vaga.
+- Avaliação desses elementos frente às responsabilidades, atribuições, requisitos e qualificações da vaga.
+- Recomendação quanto à convocação ou não do candidato.
+- O que o candidato pode fazer para aumentar suas chances de admissão.
 
 ---
 

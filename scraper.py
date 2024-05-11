@@ -14,10 +14,13 @@ def parse(html) -> tuple:
 
 	soup = BeautifulSoup(html, "html.parser")
 	title = soup.find(id='h1').text
-	forbidden = ('Informações adicionais', 'Etapas do processo')
+	target = (
+		'Descrição da vaga', 'Responsabilidades e atribuições',
+		'Requisitos e qualificações', 'Diferenciais'
+		)
 	out = []
 	for outter_div in soup.section.contents:
-		if not outter_div.h2.text in forbidden:
+		if outter_div.h2.text in target:
 			out.append(f"""#### {outter_div.h2.text}\n{refine(str(outter_div.div))}\n""")
 	return title.strip(), '\n'.join(out)
 

@@ -6,7 +6,12 @@ from myio import read_file
 class Bot():
 
 	def __init__(self):
-		self._model = genai.GenerativeModel('gemini-pro')
+		self._model = genai.GenerativeModel(
+			model_name='gemini-1.0-pro',
+			generation_config={
+				"temperature": 0.5,
+				"max_output_tokens": 2048,
+			})
 		self.load_apikey()
 
 	def load_apikey(self):
