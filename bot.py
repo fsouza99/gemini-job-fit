@@ -1,15 +1,15 @@
 import google.generativeai as genai
 
-from settings import API_KEY_PATH
+from settings import API_KEY_PATH, MODEL_NAME
 from myio import read_file
 
 class Bot():
 
 	def __init__(self):
 		self._model = genai.GenerativeModel(
-			model_name='gemini-1.0-pro',
+			model_name=MODEL_NAME,
 			generation_config={
-				"temperature": 0.5,
+				"temperature": 0.3,
 				"max_output_tokens": 2048,
 			})
 		self.load_apikey()
