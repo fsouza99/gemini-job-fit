@@ -1,11 +1,11 @@
-#### GRAU DE INSTRUÇÃO
+### GRAU DE INSTRUÇÃO
 
 Graduação (Em andamento)
 Publicidade e Propaganda
 Faculdade Fulano de Tal
 03/2021 - 12/2024
 
-#### EXPERIÊNCIA PROFISSIONAL
+### EXPERIÊNCIA PROFISSIONAL
 
 **Empresa**: Fictional Marketing Inc.
 **Cargo**: Estagiário
@@ -17,7 +17,7 @@ Faculdade Fulano de Tal
 **Descrição**: [...]
 **Período**: 01/2023 - 12/2023
 
-#### CONQUISTAS
+### CONQUISTAS
 
 **Conquista**: Certificado
 **Título**: Certificado MS Office
@@ -35,7 +35,7 @@ Faculdade Fulano de Tal
 **Título**: Introdução à Ciência de Dados
 **Descrição**: [...]
 
-#### IDIOMAS
+### IDIOMAS
 
 **Idioma**: Inglês
 **Nível**: Fluente
@@ -43,6 +43,6 @@ Faculdade Fulano de Tal
 **Idioma**: Espanhol
 **Nível**: Intermediário
 
-#### PERFIL EM REDES SOCIAIS
+### PERFIL EM REDES SOCIAIS
 
 **LinkedIn**: https://www.linkedin.com/in/my-profile/

@@ -17,5 +17,20 @@ OUTPUTDIR = 'files\\output'
 
 # Mensagens de ajuda.
 HELP_MSG1 = f"""Dependências geradas no diretório "files".
-Antes de executar novamente, informe as entradas nos arquivos criados."""
-HELP_MSG2 = "Comando: py main.py <gupy_url>"
+Execute novamente para obter ajuda."""
+HELP_MSG2 = f"""Comando: py main.py <gupy_url> [-p].
+
+Orientações:
+
+	- O currículo deve estar escrito em "files/curriculum.md", aconselhavelmente
+	fazendo uso da sintaxe Markdown para aprimorar o entendimento do Gemini
+	sobre a entrada (veja o exemplo em "files").
+	- O prompt será construído conforme o template em "files/prompt_model.md".
+	- Para consultar o Gemini, é necessário fornecer uma chave de acesso no
+	arquivo "files/apikey".
+
+Parâmetros:
+
+	{"gupy_url":<10}\tEndereço web da vaga na Gupy.
+	{"-p":<10}\tApenas gera o prompt e finaliza.
+"""

@@ -3,25 +3,31 @@ import requests
 
 from bs4 import BeautifulSoup
 
-def parse(html) -> tuple:
+def parse(html: str) -> tuple[str, str]:
 	"""
 	Retorna título e descrição formatada da oferta de emprego de uma página Gupy.
-	A função interna é útil para obter texto de bloco HTML respeitando novos parágrafos e itens de lista.
 	"""
 	def refine(piece):
+		"""
+		Obtém texto de bloco HTML respeitando novos parágrafos e itens de lista.
+		"""
 		piece = piece.replace('<p', '\n<p').replace('<li', '\n- <li')
 		return re.sub(r"<(.*?)>", '', piece)
 
 	soup = BeautifulSoup(html, "html.parser")
 	title = soup.find(id='h1').text
 	target = (
-		'Descrição da vaga', 'Responsabilidades e atribuições',
-		'Requisitos e qualificações', 'Diferenciais'
+		'Responsabilidades e atribuições',
+		'Requisitos e qualificações',
+		'Diferenciais'
 		)
 	out = []
+	# Para cada <div> no único elemento <section> da página.
 	for outter_div in soup.section.contents:
+		# Se houver um filho <h2> com título de interesse.
 		if outter_div.h2.text in target:
-			out.append(f"""#### {outter_div.h2.text}\n{refine(str(outter_div.div))}\n""")
+			# Guarde o título e seu conteúdo subsequente.
+			out.append(f"""### {outter_div.h2.text}\n{refine(str(outter_div.div))}\n""")
 	return title.strip(), '\n'.join(out)
 
 def get_page(url: str) -> str:
@@ -30,12 +36,5 @@ def get_page(url: str) -> str:
 	"""
 	response = requests.get(url)
 	if response.status_code == 200:
-		html_content = response.text.replace('\u00A0', ' ')
-	else:
-		raise RuntimeError(f"Error downloading webpage: {response.status_code}")
-	return html_content
-
-
-
-
-
+		return response.text.replace('\u00A0', ' ')
+	raise RuntimeError(f"Error downloading webpage: {response.status_code}")

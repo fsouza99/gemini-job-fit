@@ -1,15 +1,11 @@
-## Tarefa
+# Tarefa
 
-Avaliamos de 1 a 100, ao modo de um ATS, a compatibilidade entre um currículo e a descrição de uma vaga de emprego para o cargo de **$job_position**.
+Avaliamos de 1 a 100, ao modo de um ATS, a compatibilidade entre a descrição de uma vaga de emprego para o cargo de **$job_position** e um currículo enviado por um candidato.
 
----
-
-### CURRÍCULO
-
-$curriculum
-
----
-
-### VAGA
+## VAGA DE EMPREGO
 
 $job_description
+
+## CURRÍCULO DO CANDIDATO
+
+$curriculum

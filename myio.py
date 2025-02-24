@@ -1,13 +1,13 @@
 import os
 
-def write_file(path, text, footnote=None) -> None:
+def write_file(path: str, text: str, footnote: str = None) -> None:
 	with open(path, 'w', encoding='utf8') as file:
 		file.write(text)
 		if footnote is not None:
 			file.write(f'\n\n---\n\n{footnote}')
 	return
 
-def read_file(path) -> str:
+def read_file(path: str) -> str:
 	with open(path, encoding='utf8') as file:
 		text = file.read()
 	return text

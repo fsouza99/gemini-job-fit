@@ -16,11 +16,15 @@ Inicialmente, o *script* em *main.py* cria as dependências necessárias para o 
 - O *prompt* será construído conforme o *template* em *files/prompt_model.md*.
 - Para consultar o Gemini, é necessário fornecer uma chave de acesso no arquivo *files/apikey*.
 
-Com esses dados devidamente informados, execute o *main.py* novamente para solicitar ao Gemini que retorne sua análise de compatibilidade entre o currículo e uma vaga no portal Gupy, indicada por uma URL passada como parâmetro na execução:
+Após isso, para obter ajuda, executamos o mesmo *script* sem parâmetros.
 
-	py main.py <url>
+Para solicitar ao Gemini que retorne sua análise de compatibilidade entre o currículo e uma vaga no portal Gupy:
 
-Como resultado, o programa registra em arquivos o *prompt* enviado e a resposta do modelo.
+	py main.py <url_vaga>
+
+Como resultado, o programa registra em *files/output* o *prompt* enviado e a resposta do modelo.
+
+Também é possível, com a opção *-p*, apenas gerar o *prompt* e sair, permitindo que o usuário o utilize em qualquer IA de sua preferência.
 
 *Dica: O [StackEdit](https://stackedit.io/app#) pode ser uma boa opção para ler um texto Markdown com as formatações à mostra.*
 
