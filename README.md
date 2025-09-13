@@ -1,7 +1,5 @@
 ## Gemini Vitae
 
-### Intro
-
 O portal Gupy é um dos softwares mais utilizados por empresas para organização de ofertas de vagas de emprego no Brasil, unificando muitas etapas típicas do processo de contratação.
 
 Um dos recursos que o site dá aos empregadores é a possibilidade de ordenar os currículos, enviados sob rígido formato, por grau de compatibilidade com a vaga, estimado segundo uma inteligência artificial.
@@ -10,21 +8,29 @@ Apesar de não coincidir necessariamente com as análises da IA do portal, as re
 
 ### Uso
 
-Inicialmente, o *script* em *main.py* cria as dependências necessárias para o esquema de consulta:
+Crie um arquivo *settings.json* na pasta raiz, seguindo o modelo de exemplo:
 
-- O currículo deve estar escrito em *files/curriculum.md*, aconselhavelmente fazendo uso da sintaxe *Markdown* para aprimorar o entendimento do Gemini sobre a entrada (veja o exemplo em *files*).
-- O *prompt* será construído conforme o *template* em *files/prompt_model.md*.
-- Para consultar o Gemini, é necessário fornecer uma chave de acesso no arquivo *files/apikey*.
+```json
+{
+	"cv_file": "path\\to\\curriculum.md",
+	"model": "gemini-2.5-flash",
+	"output_dir": "dir\\where\\output\\must\\be\\saved"
+}
+```
 
-Após isso, para obter ajuda, executamos o mesmo *script* sem parâmetros.
+Há um modelo de currículo em *files* que pode servir de referência para o que será indicado no arquivo de configuração, em um formato semelhante ao da Gupy (o que não é obrigatório).
 
-Para solicitar ao Gemini que retorne sua análise de compatibilidade entre o currículo e uma vaga no portal Gupy:
+Para solicitar ao Gemini que retorne sua análise de compatibilidade entre o currículo e uma vaga no portal, fazemos:
 
-	py main.py <url_vaga>
-
-Como resultado, o programa registra em *files/output* o *prompt* enviado e a resposta do modelo.
+```
+py main.py <url_vaga>
+```
 
 Também é possível, com a opção *-p*, apenas gerar o *prompt* e sair, permitindo que o usuário o utilize em qualquer IA de sua preferência.
+
+```
+py main.py <url_vaga> -p
+```
 
 *Dica: O [StackEdit](https://stackedit.io/app#) pode ser uma boa opção para ler um texto Markdown com as formatações à mostra.*
 

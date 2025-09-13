@@ -1,6 +1,4 @@
-*_ignore*
-*tests*
-__pycache__
-files/apikey
-files/curriculum.md
-files/output
+__*
+
+settings.json
+

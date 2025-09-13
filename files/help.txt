@@ -1,0 +1,17 @@
+Comando: py main.py <gupy_url> [-p]
+
+Parâmetros
+
+    gupy_url    Endereço web da vaga na Gupy.
+    -p          Apenas gera o prompt e finaliza.
+
+Orientações
+
+    - Um arquivo "settings.json" é esperado na pasta raiz com as chaves do
+    exemplo. Determine o caminho de um arquivo contendo o currículo, uma
+    pasta para salvar os resultados e o modelo do Gemini a ser empregado.
+    
+    - O prompt será construído conforme o template em "files/prompt_model.md".
+    
+    - Para consultar o Gemini, é necessário definir uma variável de ambiente
+    "GOOGLE_API_KEY" com uma chave de acesso.

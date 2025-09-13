@@ -1,0 +1,5 @@
+{
+	"cv_path": "path\\to\\curriculum.md",
+	"model": "gemini-2.5-flash",
+	"output_dir": "path\\to\\output\\dir"
+}

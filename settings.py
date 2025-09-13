@@ -1,36 +1,22 @@
-# Modelo do Gemini a ser usado.
-MODEL_NAME = 'gemini-1.5-pro'
+import json
 
-# Caminho para arquivo com chave de acesso à Gemini API.
-# Ao editar o arquivo, mantenha o formato GEMINI_API_KEY=Chave.
-API_KEY_PATH = "files\\apikey"
+from constants import SETTINGS
 
-# Caminho para arquivo com descrição do currículo.
-# É aconselhável que esteja no formato dos currículos da Gupy.
-CVFILE = "files\\curriculum.md"
 
-# Caminho para arquivo com modelo de prompt.
-PROMPTFILE = "files\\prompt_model.md"
+class Settings:
+    """Settings defined in JSON file, accessed as an object."""
 
-# Caminho para diretório de prompts enviados e respostas do Gemini.
-OUTPUTDIR = 'files\\output'
+    def __init__(self):
+        """Load settings from JSON source file."""
+        try:
+            with open(SETTINGS, encoding='utf8') as file:
+                data = json.load(file)
+        except:
+            raise Exception(
+                f"Settings could not be loaded from file: {SETTINGS}.")
 
-# Mensagens de ajuda.
-HELP_MSG1 = f"""Dependências geradas no diretório "files".
-Execute novamente para obter ajuda."""
-HELP_MSG2 = f"""Comando: py main.py <gupy_url> [-p].
+        for key, value in data.items():
+            setattr(self, key, value)
 
-Orientações:
+        return
 
-	- O currículo deve estar escrito em "files/curriculum.md", aconselhavelmente
-	fazendo uso da sintaxe Markdown para aprimorar o entendimento do Gemini
-	sobre a entrada (veja o exemplo em "files").
-	- O prompt será construído conforme o template em "files/prompt_model.md".
-	- Para consultar o Gemini, é necessário fornecer uma chave de acesso no
-	arquivo "files/apikey".
-
-Parâmetros:
-
-	{"gupy_url":<10}\tEndereço web da vaga na Gupy.
-	{"-p":<10}\tApenas gera o prompt e finaliza.
-"""
