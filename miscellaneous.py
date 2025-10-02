@@ -35,10 +35,8 @@ def create_prompt(
             curriculum=read_file(template_path))
 
 
-def create_path_prefix(
-    output_dir: str, company_name: str, job_position: str) -> str:
-    """Generate prefix for the path of output file."""
-    cleaned_cn = clean_title(company_name)
-    cleaned_jp = clean_title(job_position)
-    return f"{output_dir}\\{cleaned_cn} - {cleaned_jp}"
+def create_path_prefix(output_dir: str, *args) -> str:
+    """Build prefix for the path of output file."""
+    buffer = ' - '.join([clean_title(element) for element in args])
+    return f"{output_dir}\\{buffer}"
 

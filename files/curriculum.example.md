@@ -3,19 +3,17 @@
 Graduação (Em andamento)
 Publicidade e Propaganda
 Faculdade Fulano de Tal
-03/2021 - 12/2024
+3/2021 - 12/2024
 
 ### EXPERIÊNCIA PROFISSIONAL
 
 **Empresa**: Fictional Marketing Inc.
-**Cargo**: Estagiário
+**Cargo**: Estagiário (8/2022 - 12/2022)
 **Descrição**: [...]
-**Período**: 08/2022 - 12/2022
 
 **Empresa**: AD Masters
-**Cargo**: Assistente Criativo
+**Cargo**: Assistente Criativo (1/2023 - 12/2023)
 **Descrição**: [...]
-**Período**: 01/2023 - 12/2023
 
 ### CONQUISTAS
 
