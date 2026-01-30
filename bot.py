@@ -9,9 +9,7 @@ class Bot:
     """
     def __init__(self, model: str):
         self._client = Client()
-        self._config = GenerateContentConfig(
-            system_instruction='Emule um ATS.',
-            temperature=0.3)
+        self._config = GenerateContentConfig(temperature=0.3)
         self.model = model
         return
 

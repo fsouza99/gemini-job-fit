@@ -2,7 +2,7 @@ from datetime import datetime
 from string import Template
 import re
 
-from constants import PROMPT_FILE
+from constants import PROMPTS
 from myio import read_file
 
 
@@ -26,13 +26,20 @@ def clean_title(title: str) -> str:
 
 
 def create_prompt(
-    job_position: str, job_description: str, template_path: str) -> str:
-    """Build prompt from template."""
+    prompt_key: str,
+    job_position: str,
+    job_description: str,
+    cv_path: str) -> str:
+    """Build prompt from selected prompt template, CV file and job info."""
+    template = PROMPTS.get(prompt_key)
+    if template is None:
+        raise Exception(
+            f'No prompt file is referred by given key "{prompt_key}".')
     return Template(
-        read_file(PROMPT_FILE)).substitute(
+        read_file(template)).substitute(
             job_position=job_position.lower(),
             job_description=job_description,
-            curriculum=read_file(template_path))
+            curriculum=read_file(cv_path))
 
 
 def create_path_prefix(output_dir: str, *args) -> str:

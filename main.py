@@ -26,7 +26,8 @@ print('Extraindo informações da vaga de emprego.')
 job_position, job_desc = parse(job_page)
 
 print('Construindo prompt.')
-prompt = create_prompt(job_position, job_desc, settings.cv_path)
+prompt_key = 'a' if 'a' in argv else 'f'
+prompt = create_prompt(prompt_key, job_position, job_desc, settings.cv_path)
 
 # Get ready for conclusion.
 curr_date = curr_date()
