@@ -12,9 +12,9 @@ Parâmetros
 
 Orientações
 
-    - Um arquivo "settings.json" é esperado na pasta raiz com as chaves do
-    exemplo. Determine o caminho de um arquivo contendo o currículo, uma
-    pasta para salvar os resultados e o modelo do Gemini a ser empregado.
+    - Um arquivo "settings.json" é esperado na pasta raiz com as chaves do arquivo de exemplo.
+    Determine o caminho de um arquivo contendo o currículo, uma pasta para salvar os resultados
+    e o modelo do Gemini a ser empregado.
 
     - Prompts são construídos conforme os templates em "files/prompts".
 

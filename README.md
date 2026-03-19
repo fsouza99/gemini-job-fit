@@ -8,28 +8,12 @@ Apesar de não coincidir necessariamente com as análises da IA do portal, as re
 
 ### Uso
 
-Crie um arquivo *settings.json* na pasta raiz, seguindo o modelo de exemplo:
+Apenas execute o *script* principal para ver como utilizar o projeto. Será preciso criar um arquivo de configuração definindo um currículo para referência, um modelo do Gemini e um destino para as respostas, além de uma variável de ambiente com uma chave de acesso.
 
-```json
-{
-	"cv_file": "path\\to\\curriculum.md",
-	"model": "gemini-2.5-flash",
-	"output_dir": "dir\\where\\output\\must\\be\\saved"
-}
-```
-
-Há um modelo de currículo em *files* que pode servir de referência para o que será indicado no arquivo de configuração, em um formato semelhante ao da Gupy (o que não é obrigatório).
-
-Para solicitar ao Gemini que retorne sua análise de compatibilidade entre o currículo e uma vaga no portal, fazemos:
+Após definir as configurações, bastará reexecutar o *script* com o endereço da vaga almejada.
 
 ```
 py main.py <url_vaga>
-```
-
-Também é possível, com a opção *-p*, apenas gerar o *prompt* e sair, permitindo que o usuário o utilize em qualquer IA de sua preferência.
-
-```
-py main.py <url_vaga> -p
 ```
 
 *Dica: O [StackEdit](https://stackedit.io/app#) pode ser uma boa opção para ler um texto Markdown com as formatações à mostra.*
