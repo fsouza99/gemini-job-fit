@@ -15,9 +15,9 @@ def company_name(job_url: str) -> str:
     return job_url[8:job_url.index('.gupy.')].capitalize()
 
 
-def curr_date() -> str:
-    """Get current date as string."""
-    return str(datetime.today().date())
+def curr_datetime() -> str:
+    """Get current datetime as string."""
+    return datetime.now().strftime("%Y-%m-%d %H:%M")
 
 
 def clean_title(title: str) -> str:
@@ -29,7 +29,8 @@ def create_prompt(
     prompt_key: str,
     job_position: str,
     job_description: str,
-    cv_path: str) -> str:
+    cv_path: str
+) -> str:
     """Build prompt from selected prompt template, CV file and job info."""
     template = PROMPTS.get(prompt_key)
     if template is None:
