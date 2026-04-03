@@ -43,10 +43,10 @@ print('Comunicando o Gemini.')
 bot = Bot(settings.model)
 response = bot.send_prompt(prompt)
 if response is None:
-    print('Falha na comunicação; salvando prompt.')
+    print('Falha na comunicação.\nSalvando prompt.')
     write_file(f'{prefix} (prompt - erro).md', prompt)
 else:
-    print('Sucesso na comunicação; salvando prompt e resposta.')
+    print('Sucesso na comunicação.\nSalvando prompt e resposta.')
     write_file(f'{prefix} (prompt).md', prompt)
     write_file(
         f'{prefix} (response).md',
