@@ -1,6 +1,6 @@
 # Tarefa
 
-Analise o currículo de um candidato em comparação à descrição de uma vaga de emprego para o cargo de "**$job_position**". Aja como um recrutador exigente:
+Analise o currículo de um candidato em comparação à descrição de uma vaga de emprego para o cargo de "$job_position". Aja como um recrutador exigente:
 
 1) Quais são as principais lacunas e o que poderia ser melhorado no texto para alinhar o candidato aos requisitos?
 

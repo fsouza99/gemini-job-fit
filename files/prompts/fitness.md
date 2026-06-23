@@ -1,6 +1,6 @@
 # Tarefa
 
-Avalie de 1 a 100 a compatibilidade entre a descrição de uma vaga de emprego para o cargo de "**$job_position**" e um currículo enviado por um candidato.
+Avalie de 1 a 5 a compatibilidade entre a descrição de uma vaga de emprego para o cargo de "$job_position" e um currículo enviado por um candidato.
 
 Aja como um recrutador exigente e apresente uma justificativa de até 120 palavras para a pontuação.
 
